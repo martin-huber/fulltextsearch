@@ -226,6 +226,7 @@ var searchbox = {
 
 		for (var j = 0; j < options.length; j++) {
 			var sub = options[j];
+			searchbox.displayPanelGrouplabel(div, sub);
 			searchbox.displayPanelCheckbox(div, sub);
 			searchbox.displayPanelInput(div, sub);
 		}
@@ -270,6 +271,14 @@ var searchbox = {
 		}
 		subDiv.find('.div-table-col-right').append(subDivInput);
 		div.append(subDiv);
+	},
+
+
+	displayPanelGrouplabel: function (div, sub) {
+		if (sub.type !== 'grouplabel') {
+			return;
+		}
+		div.append("<h3>" + sub.title + "</h3>" );
 	},
 
 

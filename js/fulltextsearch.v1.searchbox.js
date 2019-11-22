@@ -265,6 +265,9 @@ var searchbox = {
 			id: sub.name,
 			value: 1
 		});
+		if (sub.placeholder === "checked") {
+			subDivInput.prop("checked", true);
+		}
 		subDiv.find('.div-table-col-right').append(subDivInput);
 		div.append(subDiv);
 	},

@@ -609,10 +609,11 @@ class SearchRequest implements ISearchRequest, JsonSerializable {
 //	 */
 //	public function getWildcardQueries() {
 //		return $this->wildcardQueries;
+
+
 //	}
 
-
-	/**
+    /**
 	 * @param array $filter
 	 *
 	 * @return ISearchRequest
@@ -623,7 +624,7 @@ class SearchRequest implements ISearchRequest, JsonSerializable {
 		return $this;
 	}
 
-	/**
+    /**
 	 * @param array $filters
 	 *
 	 * @return ISearchRequest
@@ -634,15 +635,15 @@ class SearchRequest implements ISearchRequest, JsonSerializable {
 		return $this;
 	}
 
-	/**
+
+    /**
 	 * @return array
 	 */
 	public function getWildcardFilters(): array {
 		return $this->wildcardFilters;
 	}
 
-
-	/**
+    /**
 	 * @param string $filter
 	 *
 	 * @return ISearchRequest
@@ -653,7 +654,7 @@ class SearchRequest implements ISearchRequest, JsonSerializable {
 		return $this;
 	}
 
-	/**
+    /**
 	 * @param array $filters
 	 *
 	 * @return ISearchRequest
@@ -664,7 +665,8 @@ class SearchRequest implements ISearchRequest, JsonSerializable {
 		return $this;
 	}
 
-	/**
+
+    /**
 	 * @return array
 	 */
 	public function getRegexFilters(): array {
@@ -672,7 +674,7 @@ class SearchRequest implements ISearchRequest, JsonSerializable {
 	}
 
 
-	/**
+    /**
 	 * @param ISearchRequestSimpleQuery $query
 	 *
 	 * @return ISearchRequest
@@ -684,7 +686,7 @@ class SearchRequest implements ISearchRequest, JsonSerializable {
 	}
 
 
-	/**
+    /**
 	 * @return ISearchRequestSimpleQuery[]
 	 */
 	public function getSimpleQueries(): array {
@@ -692,7 +694,7 @@ class SearchRequest implements ISearchRequest, JsonSerializable {
 	}
 
 
-	/**
+    /**
 	 * @return array
 	 */
 	public function jsonSerialize(): array {
@@ -712,7 +714,7 @@ class SearchRequest implements ISearchRequest, JsonSerializable {
 	}
 
 
-	/**
+    /**
 	 * @param array $arr
 	 *
 	 * @return SearchRequest
@@ -737,8 +739,7 @@ class SearchRequest implements ISearchRequest, JsonSerializable {
 		return $this;
 	}
 
-
-	/**
+    /**
 	 * @param string $json
 	 *
 	 * @return SearchRequest
@@ -749,5 +750,4 @@ class SearchRequest implements ISearchRequest, JsonSerializable {
 
 		return $searchRequest;
 	}
-
 }

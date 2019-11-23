@@ -49,6 +49,8 @@ class SearchResult implements ISearchResult, JsonSerializable {
 	/** @var IIndexDocument[] */
 	private $documents = [];
 
+	private $aggregations = [];
+
 	/** @var string */
 	private $rawResult;
 
@@ -72,9 +74,13 @@ class SearchResult implements ISearchResult, JsonSerializable {
 
 	/** @var ISearchRequest */
 	private $request;
+    /**
+     * @var array
+     */
+    private $selectedOptions = [];
 
 
-	/**
+    /**
 	 * SearchResult constructor.
 	 *
 	 * @param SearchRequest $searchRequest
@@ -273,17 +279,28 @@ class SearchResult implements ISearchResult, JsonSerializable {
 	}
 
 
-	/**
-	 * @param string $category
-	 * @param string $value
-	 * @param int $count
-	 *
-	 * @return ISearchResult
-	 * @since 15.0.0
-	 *
-	 */
-	public function addAggregation(string $category, string $value, int $count): ISearchResult {
-		// TODO: Implement addAggregation() method.
+    /**
+     * @param string $categoryKey
+     * @param string $valueLabel
+     * @param string $valueKey
+     * @param int $count
+     *
+     * @return ISearchResult
+     * @since 15.0.0
+     */
+    public function addAggregation(string $categoryKey, string $valueLabel, string $valueKey, int $count): ISearchResult {
+        $aggregations = $this->aggregations;
+
+        if (!array_key_exists($categoryKey, $aggregations)) {
+            $aggregations[$categoryKey] = [];
+        }
+        array_push($aggregations[$categoryKey], [
+            "valueKey" => $valueKey,
+            "valueLabel" => $valueLabel,
+            "count" => $count
+        ]);
+
+        $this->aggregations = $aggregations;
 
 		return $this;
 	}
@@ -295,10 +312,8 @@ class SearchResult implements ISearchResult, JsonSerializable {
 	 * @since 15.0.0
 	 *
 	 */
-	public function getAggregations(string $category): array {
-		// TODO: Implement getAggregations() method.
-
-		return [];
+	public function getAggregations(): array {
+		return $this->aggregations;
 	}
 
 
@@ -330,6 +345,8 @@ class SearchResult implements ISearchResult, JsonSerializable {
 			'platform'  => $platform,
 			'documents' => $this->getDocuments(),
 			'info'      => $this->getInfosAll(),
+            'aggregations' => $this->getAggregations(),
+            'selectedOptions' => $this->selectedOptions,
 			'meta'      =>
 				[
 					'timedOut' => $this->isTimedOut(),
@@ -352,5 +369,10 @@ class SearchResult implements ISearchResult, JsonSerializable {
 	public function getInfosAll(): array {
 		return [];
 	}
+
+    public function addSelectedOptions(string $categoryKey, string $valueKey)
+    {
+        array_push($this->selectedOptions, ["categoryKey" => $categoryKey, "valueKey" => $valueKey]);
+    }
 }
 

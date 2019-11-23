@@ -63,6 +63,9 @@ var result = {
 
 		var current = curr.getProviderResult(result.provider.id);
 		var divProvider = nav.getDivProvider(result.provider.id, result.provider.name);
+
+		searchbox.manageDivProviderOptionPanel(request, result.aggregations, result.selectedOptions);
+
 		nav.manageDivProviderNavigation(divProvider.children('.provider_navigation'), request,
 			result.meta);
 		nav.manageDivProviderResult(divProvider.find('.provider_result'), result.documents,

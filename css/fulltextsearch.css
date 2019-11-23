@@ -248,6 +248,27 @@ input.options_small {
 .div-table-col {
 	float: left;
 	display: table-column;
+	height: 10px;
+}
+
+.div-table-grouplabel {
+	font-size: 14px;
+	font-weight: bold;
+	padding-top: 10px;
+	padding-left: 36px;
+	height: 10px;
+}
+input[type="text"]#files_extension {
+	padding: 0 0 0 5px;
+	font-size: 12px;
+	height: 20px;
+	line-height: 12px;
+	min-height: 20px;
+	margin: 8px 0 0 0;
+}
+
+#fts-options {
+	padding-bottom: 10px;
 }
 
 .div-table-col-left {

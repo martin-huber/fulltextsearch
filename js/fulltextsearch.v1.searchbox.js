@@ -278,7 +278,7 @@ var searchbox = {
 		if (sub.type !== 'grouplabel') {
 			return;
 		}
-		div.append("<h3>" + sub.title + "</h3>" );
+		div.append("<div class='div-table-grouplabel'>" + sub.title + "</div>" );
 	},
 
 

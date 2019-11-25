@@ -361,6 +361,7 @@ var searchbox = {
 				var valueKey = agg['valueKey'];
 
 				var checked = false;
+				// todo eneable and check what the problem was
 				// for (var k = 0; i < selectedOptions.length; k++) {
 				// 	if (categoryKey === selectedOptions[k]["categoryKey"] && valueKey === selectedOptions[k]["valueKey"] ) {
 				// 		checked = true;

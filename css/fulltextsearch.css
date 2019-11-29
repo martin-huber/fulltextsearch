@@ -23,7 +23,7 @@ div.icon-fulltextsearch {
 	width: 340px;
 	right: 42px;
 	max-width: 85%;
-	max-height: 700px !important;
+	max-height: 600px !important;
 	overflow-x: hidden;
 	overflow-y: scroll;
 }

@@ -23,7 +23,9 @@ div.icon-fulltextsearch {
 	width: 340px;
 	right: 42px;
 	max-width: 85%;
-	max-height: 500px !important;
+	max-height: 700px !important;
+	overflow-x: hidden;
+	overflow-y: scroll;
 }
 
 #fts-popup::after {
@@ -248,7 +250,6 @@ input.options_small {
 .div-table-col {
 	float: left;
 	display: table-column;
-	height: 10px;
 }
 
 .div-table-grouplabel {
@@ -256,7 +257,6 @@ input.options_small {
 	font-weight: bold;
 	padding-top: 10px;
 	padding-left: 33px;
-	height: 10px;
 }
 input[type="text"]#files_extension {
 	padding: 0 0 0 5px;
@@ -271,10 +271,28 @@ input[type="text"]#files_extension {
 	padding-bottom: 10px;
 }
 
-.div-table-col-left {
-	width: 170px;
-	margin-top: 8px;
+#fts-options .div-table-col-left {
+	width: 230px;
 	color: #707070;
-	margin-right: 15px;
+	margin-right: 5px;
 	text-align: right;
+	white-space: nowrap;
+}
+
+#fts-options .div-table {
+	width: 340px;
+}
+
+#fts-options .div-table-col-right {
+	height: 14px;
+}
+
+#fts-options input {
+	cursor: pointer;
+	bottom: 10px;
+	position: relative;
+}
+
+#aggregations-container {
+	height: 2px;
 }
